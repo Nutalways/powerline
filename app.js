@@ -19,11 +19,11 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(morgan('dev'));
 //config cookieParser
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
 
 // include routes
-var routes = require('./module/routes')(app, db, config);
+require('./module/routes')(app, db, config);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
