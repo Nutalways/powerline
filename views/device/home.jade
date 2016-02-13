@@ -4,7 +4,11 @@ block content
 	title home
 	.col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
 		ol.breadcrumb
-			li.active Home
+			li
+				a(href='index.html') Home
+			li
+				a(href='air.html') Time
+			li.active Add time
 	.row.text-left
 		.col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
 			.panel-body
@@ -15,120 +19,114 @@ block content
 	.col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
 		.panel.panel-default
 			.panel-body
-				form(role='form')
-					.row
-						.form-group
-							label.col-lg-6.col-md-6.col-sm-6.col-xs-6.control-label
-								a(href='air.html') Air conditioner
-							.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right
-								.btn-group(data-toggle='buttons')
-									label.btn.btn-default.btn-sm
-										input#option1(type='radio', name='options', autocomplete='off', checked='')
-										|  ON
-									label.btn.btn-default.btn-sm
-										input#option2(type='radio', name='options', autocomplete='off')
-										|  OFF
-							.clearfix
-						.form-group
-							label.col-lg-2.col-md-2.col-sm-2.col-xs-6.control-label temp
-							.col-lg-3.col-md-3.col-sm-3.col-xs-6
-								select.form-control
-									option 18
-									option 19
-									option 20
-									option 21
-									option 22
-									option 23
-									option 24
-									option 25
-									option 26
-									option 27
-									option 28
-							label.col-lg-7.col-md-7.col-sm-7.col-xs-12.control-label.text-right.hidden-xs
-								span time on : 4.30 pm
-								span time off : 5.30 pm
-							.clearfix
-						.form-group
-							label.col-xs-12.control-label.text-center.visible-xs
-								span time on : 4.30 pm
-								span time off : 5.30 pm
-							.clearfix
-					.divider
-					.row
-						.form-group
-							label.col-lg-6.col-md-6.col-sm-6.col-xs-6.control-label
-								a(href='lamp1.html') lamp1
-							.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right
-								.btn-group(data-toggle='buttons')
-									label.btn.btn-default.btn-sm
-										input#option1(type='radio', name='options', autocomplete='off', checked='')
-										|  ON
-									label.btn.btn-default.btn-sm
-										input#option2(type='radio', name='options', autocomplete='off')
-										|  OFF
-							.clearfix
-						.form-group
-							label.col-lg-2.col-md-2.col-sm-2.col-xs-6.control-label brightness
-							.col-lg-3.col-md-3.col-sm-3.col-xs-6
-								input(type='range', min='0', max='100', value='50', step='1', onchange='showValue(this.value)')
-								span#range1 50
-								script(type='text/javascript').
-									function showValue(newValue)
-									{
-									document.getElementById("range1").innerHTML=newValue;
-									}
-							label.col-lg-7.col-md-7.col-sm-7.col-xs-12.control-label.text-right.hidden-xs
-								span time on : 4.30 pm
-								span time off : 5.30 pm
-							.clearfix
-						.form-group
-							label.col-xs-12.control-label.text-center.visible-xs
-								span time on : 4.30 pm
-								span time off : 5.30 pm
-							.clearfix
-					.divider
-					.row
-						.form-group
-							label.col-lg-6.col-md-6.col-sm-6.col-xs-6.control-label
-								a(href='lamp2.html') lamp2
-							.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right
-								.btn-group(data-toggle='buttons')
-									label.btn.btn-default.btn-sm
-										input#option1(type='radio', name='options', autocomplete='off', checked='')
-										|  ON
-									label.btn.btn-default.btn-sm
-										input#option2(type='radio', name='options', autocomplete='off')
-										|  OFF
-							.clearfix
-						.form-group
-							label.col-lg-2.col-md-2.col-sm-2.col-xs-6.control-label brightness
-							.col-lg-3.col-md-3.col-sm-3.col-xs-6
-								input(type='range', min='0', max='100', value='50', step='1', onchange='showValue2(this.value)')
-								span#range2 50
-								script(type='text/javascript').
-									function showValue2(newValue)
-									{
-									document.getElementById("range2").innerHTML=newValue;
-									}
-							label.col-lg-7.col-md-7.col-sm-7.col-xs-12.control-label.text-right.hidden-xs
-								span time on : 4.30 pm
-								span time off : 5.30 pm
-							.clearfix
-						.form-group
-							label.col-xs-12.control-label.text-center.visible-xs
-								span time on : 4.30 pm
-								span time off : 5.30 pm
-							.clearfix
-					.divider
-<<<<<<< HEAD:views/user/home.jade
-					.text-center
-					label
-						| No electronics applilance to control Please click on "add more" button to add electronics
-					.divider
-// SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME
-// JQUERY SCRIPTS
-script(src='/jquery.js')
-// BOOTSTRAP SCRIPTS
-script(src='/js/bootstrap.min.js')
-=======
->>>>>>> origin/master:views/device/home.jade
+				if list.length == 0
+					form(role='form')
+						.text-center
+						label
+							| No electronics applilance to control Please click on "add more" button to add electronics
+				else
+					form(role='form')
+						.row
+							.form-group
+								label.col-lg-6.col-md-6.col-sm-6.col-xs-6.control-label
+									a(href='air.html') Air conditioner
+								.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right
+									.btn-group(data-toggle='buttons')
+										label.btn.btn-default.btn-sm
+											input#option1(type='radio', name='options', autocomplete='off', checked='')
+											|  ON
+										label.btn.btn-default.btn-sm
+											input#option2(type='radio', name='options', autocomplete='off')
+											|  OFF
+								.clearfix
+							.form-group
+								label.col-lg-2.col-md-2.col-sm-2.col-xs-6.control-label temp
+								.col-lg-3.col-md-3.col-sm-3.col-xs-6
+									select.form-control
+										option 18
+										option 19
+										option 20
+										option 21
+										option 22
+										option 23
+										option 24
+										option 25
+										option 26
+										option 27
+										option 28
+								label.col-lg-7.col-md-7.col-sm-7.col-xs-12.control-label.text-right.hidden-xs
+									span time on : 4.30 pm
+									span time off : 5.30 pm
+								.clearfix
+							.form-group
+								label.col-xs-12.control-label.text-center.visible-xs
+									span time on : 4.30 pm
+									span time off : 5.30 pm
+								.clearfix
+						.divider
+						.row
+							.form-group
+								label.col-lg-6.col-md-6.col-sm-6.col-xs-6.control-label
+									a(href='lamp1.html') lamp1
+								.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right
+									.btn-group(data-toggle='buttons')
+										label.btn.btn-default.btn-sm
+											input#option1(type='radio', name='options', autocomplete='off', checked='')
+											|  ON
+										label.btn.btn-default.btn-sm
+											input#option2(type='radio', name='options', autocomplete='off')
+											|  OFF
+								.clearfix
+							.form-group
+								label.col-lg-2.col-md-2.col-sm-2.col-xs-6.control-label brightness
+								.col-lg-3.col-md-3.col-sm-3.col-xs-6
+									input(type='range', min='0', max='100', value='50', step='1', onchange='showValue(this.value)')
+									span#range1 50
+									script(type='text/javascript').
+										function showValue(newValue)
+										{
+										document.getElementById("range1").innerHTML=newValue;
+										}
+								label.col-lg-7.col-md-7.col-sm-7.col-xs-12.control-label.text-right.hidden-xs
+									span time on : 4.30 pm
+									span time off : 5.30 pm
+								.clearfix
+							.form-group
+								label.col-xs-12.control-label.text-center.visible-xs
+									span time on : 4.30 pm
+									span time off : 5.30 pm
+								.clearfix
+						.divider
+						.row
+							.form-group
+								label.col-lg-6.col-md-6.col-sm-6.col-xs-6.control-label
+									a(href='lamp2.html') lamp2
+								.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right
+									.btn-group(data-toggle='buttons')
+										label.btn.btn-default.btn-sm
+											input#option1(type='radio', name='options', autocomplete='off', checked='')
+											|  ON
+										label.btn.btn-default.btn-sm
+											input#option2(type='radio', name='options', autocomplete='off')
+											|  OFF
+								.clearfix
+							.form-group
+								label.col-lg-2.col-md-2.col-sm-2.col-xs-6.control-label brightness
+								.col-lg-3.col-md-3.col-sm-3.col-xs-6
+									input(type='range', min='0', max='100', value='50', step='1', onchange='showValue2(this.value)')
+									span#range2 50
+									script(type='text/javascript').
+										function showValue2(newValue)
+										{
+										document.getElementById("range2").innerHTML=newValue;
+										}
+								label.col-lg-7.col-md-7.col-sm-7.col-xs-12.control-label.text-right.hidden-xs
+									span time on : 4.30 pm
+									span time off : 5.30 pm
+								.clearfix
+							.form-group
+								label.col-xs-12.control-label.text-center.visible-xs
+									span time on : 4.30 pm
+									span time off : 5.30 pm
+								.clearfix
+						.divider
