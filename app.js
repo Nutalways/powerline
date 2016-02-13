@@ -2,6 +2,7 @@
 var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 var path = require('path');
 var config = require('./config');
 
@@ -17,24 +18,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+app.use(session({
+  secret: config.secretKey,
+  resave: true,
+  saveUninitialized: true
+}));
 app.use(morgan('dev'));
 //config cookieParser
-//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
 app.use(express.static(path.join(__dirname, 'node_modules/jquery/dist')));
-
 
 // include routes
 require('./module/routes')(app, db, config);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  res.writeHead(404, {
-    "Content-Type": "text/plain"
-  });
-  res.write("404 Not Found\n");
-  res.end();
-});
 // create and run web application on port 8080
 var http = require('http').Server(app);
 http.listen(config.port, function() {

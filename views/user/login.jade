@@ -6,6 +6,7 @@ html
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
 		// BOOTSTRAP STYLES
 		link(href='/css/bootstrap.css', rel='stylesheet')
+		link(href='/ccss/font-awesome.css', rel='stylesheet')
 		style(type='text/css').
 			.form-group{
 			margin-bottom: 15px;
@@ -29,25 +30,22 @@ html
 				.panel-heading
 					strong   Login
 				.panel-body
-					form(role='form')
+					form(role='form', action='/login', method='POST')
 						br
 						.form-group.input-group
 							span.input-group-addon
 								i.fa.fa-tag
-							input.form-control(type='text', placeholder='Username ')
+							input.form-control(type='text',name='username', placeholder='Username')
 						.form-group.input-group
 							span.input-group-addon
 								i.fa.fa-lock
-							input.form-control(type='password', placeholder='Password')
+							input.form-control(type='password',name='password', placeholder='Password')
 						.form-group
 							span.pull-left
 								a(href='forget.html') Forget password ?
 						span.pull-right
-							a.btn.btn-primary(href='index.html') Login
+							button.btn.btn-primary(type="submit") Login
 						br
 						a(href='regis.html') register
-// SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME
-// JQUERY SCRIPTS
-script(src='/jquery.js')
-// BOOTSTRAP SCRIPTS
-script(src='/js/bootstrap.min.js')
+		script(src='/jquery.js')
+		script(src='/js/bootstrap.min.js')
