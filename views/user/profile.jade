@@ -1,0 +1,42 @@
+extends ../layout/layout
+
+block content
+	title profile
+	.col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
+		ol.breadcrumb
+			li
+				a(href='index.html') Home
+			li.active Profile
+	.row.text-center
+		.col-md-12
+			br
+			h2 profile
+			br
+	.col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
+		.panel.panel-default
+			.panel-heading
+				strong change password
+			.panel-body
+				label e-mail : example@powerline.com
+				br
+				label username : xxx
+				br
+				.form-group.input-group
+					span.input-group-addon
+						i.fa.fa-lock
+					input.form-control(type='password', placeholder='Old Password')
+				.form-group.input-group
+					span.input-group-addon
+						i.fa.fa-lock
+					input.form-control(type='password', placeholder='New Password')
+				.form-group.input-group
+					span.input-group-addon
+						i.fa.fa-lock
+					input.form-control(type='password', placeholder='Retype new Password')
+				span.pull-right
+					a.btn.btn-success(href='#') set
+// SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME
+// JQUERY SCRIPTS
+script(src='/jquery.js')
+// BOOTSTRAP SCRIPTS
+script(src='/js/bootstrap.min.js')

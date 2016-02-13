@@ -1,0 +1,36 @@
+extends ../layout/layout
+
+block content
+	title device
+	.col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
+		ol.breadcrumb
+			li
+				a(href='index.html') Home
+			li.active device
+	.row.text-center
+		.col-md-12
+			br
+			h2 Device
+			br
+	.col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
+		.panel.panel-default
+			.panel-heading
+				strong select
+			.panel-body
+				form(role='form')
+					br
+					label type
+					select.form-control
+						option air conditioner
+						option lamp
+					br
+					label name
+					input.form-control(type='text', placeholder='set name')
+					br
+					span.pull-right
+						a.btn.btn-success(href='#') add
+// SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME
+// JQUERY SCRIPTS
+script(src='/jquery.js')
+// BOOTSTRAP SCRIPTS
+script(src='/js/bootstrap.min.js')
