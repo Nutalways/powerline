@@ -5,6 +5,7 @@ html
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
 		// BOOTSTRAP STYLES
 		link(href='/css/bootstrap.css', rel='stylesheet')
+		link(href='/ccss/font-awesome.css', rel='stylesheet')
 		style(type='text/css').
 			.form-group{
 			margin-bottom: 15px;
@@ -18,8 +19,14 @@ html
 			.col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
 				h1 POWER LINE CONTROLLER
 				span.pull-right
-					| Welcome : xxx   
-					a(href='login.html') signout
+					| Welcome : #{user.email}   
+					a(href='/logout') signout
 				br
 				.divider
 			block content
+
+		// SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME
+		// JQUERY SCRIPTS
+		script(src='/jquery.js')
+		// BOOTSTRAP SCRIPTS
+		script(src='/js/bootstrap.min.js')
