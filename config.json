@@ -1,3 +1,20 @@
 {
-  "port" : 8080
+  "port": 8080,
+  "secretKey": "9ostrd",
+  "db": {
+    "user": {
+      "email": null,
+      "password": null,
+      "token": null
+    },
+    "device": {
+      "type": null,
+      "name": null,
+      "time": []
+    },
+    "timeout": {
+      "token": null,
+      "time": null
+    }
+  }
 }

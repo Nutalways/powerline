@@ -11,10 +11,16 @@
     "fs": "~0.0.2",
     "http": "~0.0.0",
     "jade": "~1.11.0",
+<<<<<<< HEAD
     "jquery": "^2.2.0",
+=======
+    "jsonwebtoken": "^5.5.4",
+>>>>>>> origin/master
     "lowdb": "~0.12.2",
     "morgan": "~1.6.1",
-    "path": "~0.12.7"
+    "path": "~0.12.7",
+    "underscore-db": "^0.9.1",
+    "uuid": "^2.0.1"
   },
   "devDependencies": {},
   "scripts": {
