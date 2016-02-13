@@ -6,14 +6,17 @@
   "dependencies": {
     "body-parser": "~1.15.0",
     "bootstrap": "~3.3.6",
-    "express": "~4.13.4",
     "cryptr": "~1.0.0",
+    "express": "~4.13.4",
     "fs": "~0.0.2",
     "http": "~0.0.0",
     "jade": "~1.11.0",
+    "jsonwebtoken": "^5.5.4",
     "lowdb": "~0.12.2",
     "morgan": "~1.6.1",
-    "path": "~0.12.7"
+    "path": "~0.12.7",
+    "underscore-db": "^0.9.1",
+    "uuid": "^2.0.1"
   },
   "devDependencies": {},
   "scripts": {
