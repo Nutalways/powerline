@@ -5,8 +5,8 @@ block content
 	.col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
 		ol.breadcrumb
 			li
-				a(href='index.html') Home
-			li.active device
+				a(href='/home') Home
+			li.active Device Add
 	.row.text-center
 		.col-md-12
 			br
@@ -17,20 +17,15 @@ block content
 			.panel-heading
 				strong select
 			.panel-body
-				form(role='form')
+				form(role='form', action='/home/device/add', method='POST')
 					br
 					label type
-					select.form-control
+					select.form-control(name='devicetype')
 						option air conditioner
 						option lamp
 					br
 					label name
-					input.form-control(type='text', placeholder='set name')
+					input.form-control(type='text',name='devicename' placeholder='set name')
 					br
 					span.pull-right
-						a.btn.btn-success(href='#') add
-// SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME
-// JQUERY SCRIPTS
-script(src='/jquery.js')
-// BOOTSTRAP SCRIPTS
-script(src='/js/bootstrap.min.js')
+						button.btn.btn-success(type='submit') add

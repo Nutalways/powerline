@@ -10,11 +10,9 @@
     "device": {
       "type": null,
       "name": null,
+      "value": null,
+      "status": false,
       "time": []
-    },
-    "timeout": {
-      "token": null,
-      "time": null
     }
   }
 }

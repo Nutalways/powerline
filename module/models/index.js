@@ -41,11 +41,6 @@ module.exports = function(config) {
       console.log('system', ':', 'model', ':', 'Initial user database complete !');
     }
   }
-  if (db.object.timer == undefined) {
-    db.object.timer = [];
-    db.write();
-    console.log('system', ':', 'model', ':', 'Initial timer database complete !');
-  }
   if (db.object.device == undefined) {
     db.object.device = [];
     db.write();

@@ -48,11 +48,7 @@ module.exports = function(app, ensureAuthorized, db, config) {
     });
   });
 
-  app.get('/home/device', ensureAuthorized, function(req, res) {
-    res.render('user/device', {
-      title: 'device'
-    });
-  });
+
   app.get('/home/time/add', ensureAuthorized, function(req, res) {
     res.render('user/addtime', {
       title: 'addtime'

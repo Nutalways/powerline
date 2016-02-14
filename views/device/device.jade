@@ -1,0 +1,42 @@
+extends ../layout/layout
+
+block content
+	.col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
+		ol.breadcrumb
+			li
+				a(href='/home') Home
+			li.active #{device.name}
+	.row.text-left
+		.col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
+			.panel-body
+				h2
+					| Time
+					span.pull-right
+						a.btn.btn-success(href='time.html') add time
+	.col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
+		.panel.panel-default
+			.panel-body
+				form(role='form')
+					a(href='editime.html') 09:00
+					span.pull-right
+						.onoffswitch
+							input#myonoffswitch.onoffswitch-checkbox(type='checkbox', name='onoffswitch', checked='')
+							label.onoffswitch-label(for='myonoffswitch')
+								span.onoffswitch-inner
+								span.onoffswitch-switch
+					br
+					label on
+					.divider
+					.text-center
+						label There is no set time please click on "add time" button to set first
+						.divider
+	.col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
+		.hidden-lg.hidden-md.hidden-sm
+			font(color='red') *if you click on this button will remove your device from website
+			span.pull-right
+				button.btn.btn-danger(type='button', data-toggle='modal', data-target='#myModal') remove device
+	.col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
+		.hidden-xs
+			span.pull-right
+				font(color='red') *if you click on this button will remove your device from website 
+				button.btn.btn-danger(type='button', data-toggle='modal', data-target='#myModal') remove device
