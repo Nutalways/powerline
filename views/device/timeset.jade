@@ -1,0 +1,62 @@
+extends ../layout/layout
+
+block content
+	.col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
+		ol.breadcrumb
+			li
+				a(href='/home') Home
+			li
+				a(href='/home/device/#{device.id}/info') #{device.name}
+			li.active Time
+	.row.text-center
+		.col-md-12
+		br
+		h2 set time
+		br
+	.col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
+		.panel.panel-default
+			.panel-heading
+				strong select
+			.panel-body
+				form(role='form', method='POST', action='/home/device/#{device.id}/time/#{timer.id}/update')
+					label power
+					select.form-control(name='set')
+						if timer.set == 1
+							option(value='1', selected="selected") on
+						else
+							option(value='1') on
+						if timer.set == 0
+							option(value='0', selected="selected") off
+						else
+							option(value='0') off
+					br
+					label time
+					br
+					div.form-inline
+						.col-sm-4
+							label hh
+							select.form-control(name='h')
+								- var n = 0
+								while n < 24
+									if n == timer.h
+										option(value=n, selected="selected")= n
+									else
+										option(value=n)= n			
+									- n = n + 1
+						.col-sm-4
+							label mm
+							select.form-control(name='m')
+								- var n = 0
+								while n < 60
+									if n == timer.m
+										option(value=n, selected="selected")= n
+									else
+										option(value=n)= n			
+									- n = n + 1
+						br
+						br
+						br
+						br
+					span.pull-right
+						a.btn.btn-danger(href='/home/device/#{device.id}/time/#{timer.id}/delete') remove
+						button.btn.btn-success(type='submit') set

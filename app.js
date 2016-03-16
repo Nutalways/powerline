@@ -27,13 +27,16 @@ app.use(morgan('dev'));
 //config cookieParser
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
+app.use(express.static(path.join(__dirname, 'node_modules/socket.io-client')));
 app.use(express.static(path.join(__dirname, 'node_modules/jquery/dist')));
 
 // include routes
+require('./module/task')(db, config);
 require('./module/routes')(app, db, config);
 
 // create and run web application on port 8080
 var http = require('http').Server(app);
+require('./module/io')(http, db, config);
 http.listen(config.port, function() {
   console.log('Express server listening on port ' + config.port);
 });

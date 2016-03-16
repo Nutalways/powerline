@@ -1,18 +1,27 @@
 {
-  "port": 8080,
-  "secretKey": "9ostrd",
-  "db": {
-    "user": {
-      "email": null,
-      "password": null,
-      "token": null
-    },
-    "device": {
-      "type": null,
-      "name": null,
-      "value": null,
-      "status": false,
-      "time": []
-    }
-  }
+	"port" : 8080,
+	"secretKey" : "9ostrd",
+	"cronJob" : {
+		"timezone" : "Asia/Bangkok"
+	},
+	"db" : {
+		"user" : {
+			"email" : null,
+			"password" : null,
+			"token" : null
+		},
+		"device" : {
+			"type" : null,
+			"name" : null,
+			"value" : null,
+			"status" : false
+		},
+		"timer" : {
+			"deviceId" : null,
+			"h" : null,
+			"m" : null,
+			"set" : 0,
+			"status" : false
+		}
+	}
 }

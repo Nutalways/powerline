@@ -6,6 +6,7 @@
   "dependencies": {
     "body-parser": "~1.15.0",
     "bootstrap": "~3.3.6",
+    "cron": "^1.1.0",
     "cryptr": "~1.0.0",
     "express": "~4.13.4",
     "express-session": "^1.13.0",
@@ -15,8 +16,11 @@
     "jquery": "^2.2.0",
     "jsonwebtoken": "^5.5.4",
     "lowdb": "~0.12.2",
+    "moment": "^2.12.0",
     "morgan": "~1.6.1",
     "path": "~0.12.7",
+    "socket.io": "^1.4.5",
+    "socket.io-client": "^1.4.5",
     "underscore-db": "^0.9.1",
     "uuid": "^2.0.1"
   },

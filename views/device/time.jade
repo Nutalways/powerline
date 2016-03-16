@@ -1,0 +1,49 @@
+extends ../layout/layout
+
+block content
+	.col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
+		ol.breadcrumb
+			li
+				a(href='/home') Home
+			li
+				a(href='/home/device/#{device.id}/info') #{device.name}
+			li.active Time
+	.row.text-center
+		.col-md-12
+		br
+		h2 set time
+		br
+	.col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
+		.panel.panel-default
+			.panel-heading
+				strong select
+			.panel-body
+				form(role='form', method='POST', action='/home/device/#{device.id}/time/add')
+					label power
+					select.form-control(name='set')
+						option(value='1') on
+						option(value='0') off
+					br
+					label time
+					br
+					div.form-inline
+						.col-sm-4
+							label hh
+							select.form-control(name='h')
+								- var n = 0
+								while n < 24
+									option(value=n) #{ n > 9 ? n : '0' + n }			
+									- n = n + 1
+						.col-sm-4
+							label mm
+							select.form-control(name='m')
+								- var n = 0
+								while n < 60
+									option(value=n) #{ n > 9 ? n : '0' + n }			
+									- n = n + 1
+						br
+						br
+						br
+						br
+					span.pull-right
+						button.btn.btn-success(type='submit') set

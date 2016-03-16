@@ -30,10 +30,10 @@ block content
 										a(href='/home/device/#{device.id}/info') #{device.name} (#{device.type})
 									.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right
 										.btn-group(data-toggle='buttons')
-											label.btn.btn-default.btn-sm(class=(device.status ? "active" : ""))
-												input#option1(type='radio', name='options', autocomplete='off', checked='#{device.status ? "checked" : device.status}')
+											label.btn.btn-default.btn-sm(class=(device.status ? "active" : ""), onclick="remote('"+device.id+"',true)")
+												input#option1(type='radio', name='options', autocomplete='off',checked='#{device.status ? "checked" : device.status}')
 												|  ON
-											label.btn.btn-default.btn-sm(class=(!device.status ? "active" : ""))
+											label.btn.btn-default.btn-sm(class=(!device.status ? "active" : ""), onclick="remote('"+device.id+"',false)")
 												input#option2(type='radio', name='options', autocomplete='off', checked='#{!device.status ? "checked" : device.status}')
 												|  OFF
 									.clearfix
@@ -57,7 +57,7 @@ block content
 												document.getElementById("#{device.id}").innerHTML=newValue;
 												}
 								.form-group
-									if device.time.length == 0
+									if device.timer == undefined
 										label.col-lg-7.col-md-7.col-sm-7.col-xs-12.control-label.text-right.hidden-xs
 											span time on : -
 											span time off : -
