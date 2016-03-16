@@ -41,38 +41,50 @@ block content
 									if device.type == 'air conditioner'
 										label.col-lg-2.col-md-2.col-sm-2.col-xs-6.control-label temp
 										.col-lg-3.col-md-3.col-sm-3.col-xs-6
-											select.form-control(value=device.value)
+											select.form-control(onchange="updateValueAir('"+device.id+"',this.options[this.selectedIndex].value)")
 												- var n = 0
 												while n <= 28
-													option(value=n) #{n}
+													if n == device.value
+														option(value=n, selected="selected")= n
+													else
+														option(value=n)= n
 													- n++
 									if device.type == 'lamp'
 										label.col-lg-2.col-md-2.col-sm-2.col-xs-6.control-label brightness
 										.col-lg-3.col-md-3.col-sm-3.col-xs-6
-											input(type='range', min='0', max='100', value='#{device.value}', step='1', onchange='showValue(this.value)')
-											span#device.id #{device.value}
-											script(type='text/javascript').
-												function showValue(newValue)
-												{
-												document.getElementById("#{device.id}").innerHTML=newValue;
-												}
+											input( type='range', min='0', max='100', value='#{device.value}', step='1', onchange="updateValueLamp('"+device.id+"',this.value)")
+											span(id= device.id) #{device.value}
 								.form-group
 									if device.timer == undefined
 										label.col-lg-7.col-md-7.col-sm-7.col-xs-12.control-label.text-right.hidden-xs
-											span time on : -
+											span time on : - 
 											span time off : -
 										.clearfix
 										label.col-xs-12.control-label.text-center.visible-xs
-											span time on : -
+											span time on : - 
 											span time off : -
 										.clearfix
 									else
 										label.col-lg-7.col-md-7.col-sm-7.col-xs-12.control-label.text-right.hidden-xs
-											span time on : 4.30 pm
-											span time off : 5.30 pm
+											if device.timer.on == undefined
+												span time on : - 
+											else
+												span time on : #{device.timer.on.h > 9 ? device.timer.on.h : '0' + device.timer.on.h}.#{device.timer.on.m > 9 ? device.timer.on.m + ' ' : '0' + device.timer.on.m + ' '}
+											if device.timer.off == undefined
+												span time off : - 
+											else
+												span time off : #{device.timer.off.h > 9 ? device.timer.off.h : '0' + device.timer.off.h}.#{device.timer.off.m > 9 ? device.timer.off.m : '0' + device.timer.off.m}
+											
 										.clearfix
 										label.col-xs-12.control-label.text-center.visible-xs
-											span time on : 4.30 pm
-											span time off : 5.30 pm
+											if device.timer.on == undefined
+												span time on : -
+											else
+												span time on : #{device.timer.on.h > 9 ? device.timer.on.h : '0' + device.timer.on.h}.#{device.timer.on.m > 9 ? device.timer.on.m + ' ' : '0' + device.timer.on.m + ' '}
+											if device.timer.off == undefined
+												span time off : -
+											else
+												span time off : #{device.timer.off.h > 9 ? device.timer.off.h : '0' + device.timer.off.h}.#{device.timer.off.m > 9 ? device.timer.off.m : '0' + device.timer.off.m}
+											
 										.clearfix
 							.divider

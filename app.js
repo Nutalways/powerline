@@ -31,12 +31,13 @@ app.use(express.static(path.join(__dirname, 'node_modules/socket.io-client')));
 app.use(express.static(path.join(__dirname, 'node_modules/jquery/dist')));
 
 // include routes
-require('./module/task')(db, config);
-require('./module/routes')(app, db, config);
+var serial = require('./module/serial')(db, config);
+var task = require('./module/task')(db, serial, config);
+require('./module/routes')(app, db, task, config);
 
 // create and run web application on port 8080
 var http = require('http').Server(app);
-require('./module/io')(http, db, config);
+require('./module/io')(http, db, serial, config);
 http.listen(config.port, function() {
   console.log('Express server listening on port ' + config.port);
 });

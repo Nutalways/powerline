@@ -13,6 +13,8 @@
 		"device" : {
 			"type" : null,
 			"name" : null,
+			"housecode" : 0,
+			"keycode" : 0,
 			"value" : null,
 			"status" : false
 		},
@@ -20,6 +22,7 @@
 			"deviceId" : null,
 			"h" : null,
 			"m" : null,
+			"update" : null,
 			"set" : 0,
 			"status" : false
 		}

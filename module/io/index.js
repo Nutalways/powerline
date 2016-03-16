@@ -1,4 +1,4 @@
-module.exports = function (http, db, config) {
+module.exports = function (http, db, serial, config) {
 	var fs = require('fs');
 	var io = require('socket.io')(http);
 	io.on('connection', function (socket) {
@@ -6,7 +6,7 @@ module.exports = function (http, db, config) {
 			if (file == "index.js")
 				return;
 			var name = file.substr(0, file.indexOf('.'));
-			require('./' + name)(io, socket, db, config);
+			require('./' + name)(io, socket, db, serial, config);
 		});
 	});
 };

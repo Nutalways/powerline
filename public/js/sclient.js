@@ -13,3 +13,20 @@ function timmer(id, logic) {
 		status : logic
 	});
 }
+
+function updateValueAir(id, val) {
+	socket.emit('updateValue', {
+		id : id,
+		value : val
+	});
+}
+
+function updateValueLamp(id, val) {
+	document.getElementById(id).innerHTML=val;
+	socket.emit('updateValue', {
+		id : id,
+		value : val
+	});
+}
+
+

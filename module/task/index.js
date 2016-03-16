@@ -1,4 +1,4 @@
-module.exports = function (db, config) {
+module.exports = function (db, serial, config) {
 	var method = {};
 	var fs = require('fs');
 	var path = require('path');
@@ -10,7 +10,7 @@ module.exports = function (db, config) {
 		if (file == "index.js" || file == "timer.js")
 			return;
 		var name = file.substr(0, file.indexOf('.'));
-		method[name] = require('./' + name)(cronJob, timeZone, db, config);
+		method[name] = require('./' + name)(cronJob, timeZone, db, serial, config);
 	});
 
 	var taskList = [];
@@ -20,7 +20,7 @@ module.exports = function (db, config) {
 			var deviceObj = db.device.list();
 			if (deviceObj) {
 				for (var i in deviceObj) {
-					var timetask = require('./timer')(cronJob, timeZone, db, config);
+					var timetask = require('./timer')(cronJob, timeZone, db, serial, config);
 					timetask.setDeviceId(deviceObj[i].id);
 					taskList.push(timetask);
 				}
@@ -69,8 +69,10 @@ module.exports = function (db, config) {
 					taskList.push(timetask);
 				}
 			}
+			return true;
 		} else {
 			console.log(moment.utc().toDate().getTime(), "=====>", 'system task cannot update');
+			return false;
 		}
 	}
 

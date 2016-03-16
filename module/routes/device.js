@@ -1,7 +1,21 @@
-module.exports = function (app, ensureAuthorized, db, config) {
+module.exports = function (app, ensureAuthorized, db, task, config) {
 
 	app.get('/home', ensureAuthorized, function (req, res) {
 		var list = db.device.list();
+		for (var i in list) {
+			var getIn = db.timer.getIncomingByDeviceId(list[i].id, '1');
+			if (getIn != null) {
+				if (list[i]['timer'] == undefined)
+					list[i]['timer'] = {};
+				list[i]['timer']['on'] = getIn;
+			}
+			var getIn = db.timer.getIncomingByDeviceId(list[i].id, '0');
+			if (getIn != null) {
+				if (list[i]['timer'] == undefined)
+					list[i]['timer'] = {};
+				list[i]['timer']['off'] = getIn;
+			}
+		}
 		res.render('device/home', {
 			list : list
 		});
@@ -48,6 +62,7 @@ module.exports = function (app, ensureAuthorized, db, config) {
 						set : input.set
 					});
 				if (timerObj) {
+
 					res.redirect('/home/device/' + device.id + '/info');
 				} else {
 					res.redirect('/home/device/' + device.id + '/time/add');
@@ -135,12 +150,19 @@ module.exports = function (app, ensureAuthorized, db, config) {
 	app.post('/home/device/add', ensureAuthorized, function (req, res) {
 		var name = req.body.devicename;
 		var type = req.body.devicetype;
-		if (name && type) {
+		var housecode = req.body.housecode;
+		var keycode = req.body.keycode;
+		if (name && type && keycode && housecode) {
 			var device = db.device.create({
 					name : name,
-					type : type
+					type : type,
+					housecode : housecode,
+					keycode : keycode
 				});
 			if (device) {
+				if (task.system.update()) {
+					task.system.start();
+				}
 				res.redirect('/home');
 			} else {
 				res.render('device/add', {
@@ -160,6 +182,7 @@ module.exports = function (app, ensureAuthorized, db, config) {
 		if (id) {
 			var device = db.device.removeById(id);
 			if (device) {
+				task.system.remove(device.id);
 				res.redirect('/home');
 			} else {
 				res.send(404);
