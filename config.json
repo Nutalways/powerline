@@ -1,34 +1,70 @@
 {
-	"port" : 8080,
-	"secretKey" : "9ostrd",
-	"cronJob" : {
-		"timezone" : "Asia/Bangkok"
+  "port": 8080,
+  "secretKey": "9ostrd",
+  "cronJob": {
+    "timezone": "Asia/Bangkok"
+  },
+  "command": {
+    "on": "00101",
+    "off": "00111"
+  },
+  "housecode": {
+    "A": "0110",
+    "B": "1110",
+    "C": "0010",
+    "D": "1010",
+    "E": "0001",
+    "F": "1001",
+    "G": "0101",
+    "H": "1101",
+    "I": "0111",
+    "J": "1111",
+    "K": "0011",
+    "L": "1011",
+    "M": "0000",
+    "N": "1000",
+    "O": "0100",
+    "P": "1100"
+  },
+	"keycode" :{
+		"1": "01100",
+    "2": "11100",
+    "3": "00100",
+    "4": "10100",
+    "5": "00010",
+    "6": "10010",
+    "7": "01010",
+    "8": "11010",
+    "9": "01110",
+    "10": "11110",
+    "11": "00110",
+    "12": "10110",
+    "13": "00000",
+    "14": "10000",
+    "15": "01000",
+    "16": "11000"
 	},
-	"command" : {
-		"on" : 00101,
-		"off" : 00111
-	},
-	"db" : {
-		"user" : {
-			"email" : null,
-			"password" : null,
-			"token" : null
-		},
-		"device" : {
-			"type" : null,
-			"name" : null,
-			"housecode" : 0,
-			"keycode" : 0,
-			"value" : null,
-			"status" : false
-		},
-		"timer" : {
-			"deviceId" : null,
-			"h" : null,
-			"m" : null,
-			"update" : null,
-			"set" : 0,
-			"status" : false
-		}
-	}
+  "db": {
+    "user": {
+      "email": null,
+      "password": null,
+      "token": null
+    },
+    "device": {
+      "type": null,
+      "name": null,
+      "housecode": 0,
+      "keycode": 0,
+      "value": null,
+      "status": false
+    },
+    "timer": {
+      "deviceId": null,
+      "h": null,
+      "m": null,
+      "update": null,
+      "set": 0,
+      "status": false
+    }
+  }
 }
