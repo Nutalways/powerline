@@ -4,6 +4,7 @@
   "cronJob": {
     "timezone": "Asia/Bangkok"
   },
+  "portName": "",
   "command": {
     "on": "00101",
     "off": "00111"
