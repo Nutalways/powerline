@@ -4,6 +4,10 @@
 	"cronJob" : {
 		"timezone" : "Asia/Bangkok"
 	},
+	"command" : {
+		"on" : 00101,
+		"off" : 00111
+	},
 	"db" : {
 		"user" : {
 			"email" : null,
