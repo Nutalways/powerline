@@ -10,7 +10,7 @@ module.exports = function(db, config) {
     serialport.list(function(err, ports) {
       var portName = [];
       ports.forEach(function(port) {
-        if (port.comName.indexOf('COM') > -1) {
+        if (port.comName.indexOf('ttyUSB') > -1) {
           portName.push(port.comName);
         }
       });
