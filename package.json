@@ -9,6 +9,7 @@
     "buffer": "^4.5.0",
     "cron": "^1.1.0",
     "cryptr": "~1.0.0",
+    "engine.io": "^1.6.8",
     "express": "~4.13.4",
     "express-session": "^1.13.0",
     "fs": "~0.0.2",

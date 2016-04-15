@@ -1,4 +1,4 @@
-module.exports = function (socket, db, serial, config) {
+module.exports = function (io, socket, db, serial, config) {
 
 	socket.on('remote', function (data) {
 		db.device.updateById(data);

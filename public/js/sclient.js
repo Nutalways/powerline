@@ -1,4 +1,5 @@
 var socket = io('http://' + window.location.host);
+console.log(window.location.host);
 
 function remote(id, logic) {
 	socket.emit('remote', {

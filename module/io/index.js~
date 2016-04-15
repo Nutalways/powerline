@@ -2,6 +2,7 @@ module.exports = function (http, db, serial, task, config) {
 	var fs = require('fs');
 	var io = require('socket.io')(http);
 	io.on('connection', function (socket) {
+
 		socket.on('remote', function (data) {
 			db.device.updateById(data);
 			serial.serial.send(data.id, data.status ? 'on' : 'off');

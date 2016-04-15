@@ -37,7 +37,7 @@ require('./module/routes')(app, db, task, config);
 
 // create and run web application on port 8080
 var http = require('http').Server(app);
-require('./module/io')(http, db, serial, task, config);
+require('./module/io')(http, db, serial,config);
 http.listen(config.port, function() {
   console.log('Express server listening on port ' + config.port);
 });
